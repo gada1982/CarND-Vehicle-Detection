@@ -148,7 +148,9 @@ The following image show the heatmap of the image above:
 ![heat_map](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/heatmap.jpg)
 
 With function `apply_threshold` all pixels are set to zero, which do not reach the minimum amount of 'points'.
-This helps to prevent false positives. With function `draw_labeled_bboxes` a combined box is drawn around each single detected car.
+This helps to prevent false positives. 
+
+With function `draw_labeled_bboxes` a combined box is drawn around each single detected car. To get the region out of the heatmap function `label` from package `scipy.ndimage.measurements` is used.
 
 The following image show the combined boxes for the detections on the image above:
 ![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
