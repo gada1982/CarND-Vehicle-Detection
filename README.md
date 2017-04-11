@@ -16,9 +16,10 @@ The goals / steps of this project are the following:
 2. Files
 3. Classifier
 4. Sliding Window Search
-Pipeline for Single Images
-Pipeline for Video
-Conclusion
+5. Heat Map and Combined Box
+6. Pipeline for Single Images
+7. Pipeline for Video Stream
+8. Conclusion
 
 # 1. Requirements
 - Python 3.5
@@ -156,6 +157,9 @@ The following image show the combined boxes for the detections on the image abov
 
 Out of all this function a single pipeline was generated, which takes a single image and produces an images with drawn combined boxes around each detected car.
 
+The code for this functionality can be found in **CODE CELL 19** of the Jupyter notebook P5.jpynb.
+Function `generate_processed_image`.
+
 This looks like the following example:
 The following image show the combined boxes for the detections on the image above:
 ![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
@@ -164,7 +168,10 @@ The following image show the combined boxes for the detections on the image abov
 
 The same pipeline as above is used for processing the video stream. Each framed is fed into the pipeline. To smoothen the output a multi-frame heatmap was introduced in the pipeline. The last ten frames are combined in a weighted heatmap. The older the frame is, the less weight it gets. This helps to prevent 'jumping' detection and false positives.
 
-The following video show the result:
+The code for this functionality can be found in **CODE CELL 20** and **CODE CELL 20** of the Jupyter notebook P5.jpynb.
+The pipeline is applied to the 'test_video' and the 'project_video'.
+
+The following video show the final project video:
 
 TODO.
 
