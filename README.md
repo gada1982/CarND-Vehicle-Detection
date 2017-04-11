@@ -187,4 +187,6 @@ The choosen solution works well for the mandatory video project_video.mp4 but it
 
 Futher work has to be invested to get the solution useable in (nearly) real-time. HOG Sub-sampling could be a major advantage, but it wasn't used until now because the actual solution is much more straight forward and better for showing the general approach of using sliding window search in combination with a classifier for vehicle detection. Multi-threading could be an option too.
 
+The pipeline won't be able to detect single cars seperately if they are driving too close to each other. This could be a problem in the real world (path planning). To get this issue fixed, the usage of more sliding windows in different sizes could be an option.
+
 
