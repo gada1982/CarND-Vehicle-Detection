@@ -80,13 +80,30 @@ Functions `extract_features`,  `extract_car_features` and `extract_non_car_featu
 Features for cars and non-cars have been extracted seperately, but for both the same base function `extract_features` has been used.
 
 ### 3.5 Create Training Data
-Out of the extracted features for cars and non-cars training data for the classifier has been generated. The code for this functionality can be found in **CODE CELL 7** of the Jupyter notebook P5.jpynb.
+Out of the extracted features for cars and non-cars training and test data for the classifier has been generated. The code for this functionality can be found in **CODE CELL 7** of the Jupyter notebook P5.jpynb.
 Function `get_training_data`.
 
-The combined features have been normalized by `StandardScaler() from the package sklearn`.
+The combined features have been normalized with `StandardScaler()` from the package `sklearn`.
 
 The following example shows the result:
 ![normalize](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/histogramm.png)
+
+The whole data was split up into training and test data by using `train_test_split` from the package `sklearn`. 20% of the data is used for testing, and never user for training.
+
+### 3.6 Training of the Classifier
+
+A Support Vector Machines (SVM) is used for classification. `LinearSVC` from the package `sklearn` has been taken.
+The code for this functionality can be found in **CODE CELL 8** of the Jupyter notebook P5.jpynb.
+
+The final **accuracy** on the test data is **0.9896**.
+
+### 3.7 Checkpoint
+
+The whole classifier including its parameter is stored as a pickle-file to have a checkpoint. This helps to speed up the development process because the classifier can be taken as it is without training again and again.
+
+The code for this functionality can be found in **CODE CELL 9** and **CODE CELL 10** of the Jupyter notebook P5.jpynb.
+Functions `save_as_pickle`and `read_pickle`.
+
 
 
 
