@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 2. Files
 3. Classifier
 4. Sliding Window Search
-5. Heat Map and Combined Box
+5. Heat Map and Bounding Box
 6. Pipeline for Single Images
 7. Pipeline for Video Stream
 8. Conclusion
@@ -138,7 +138,7 @@ Function `search_windows` takes the list of sub-regions (provided by the functio
 The following example shows the result:
 ![overlapping](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/overlapping.jpg)
 
-# 5. Heat Map and Combined Box
+# 5. Heat Map and Bounding Box
 
 To handle overlapping, multiple detections of the same car, a heat map was introduced. Each single detection adds five 'points' to the heatmap of the pixels on which the detection occours. Out of the heatmap a bounding box for each car is generated.
 
@@ -153,7 +153,7 @@ This helps to prevent false positives.
 
 With the function `draw_labeled_bboxes` a bounding box is drawn around each single detected car. To get the region out of the heatmap the function `label` from package `scipy.ndimage.measurements` is used.
 
-The following image shows the combined boxes for the detections on the image above:
+The following image shows the bounding boxes for the detections on the image above:
 ![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
 
 # 6. Pipeline for Single Images
