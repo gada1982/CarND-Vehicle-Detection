@@ -172,6 +172,7 @@ The code for this functionality can be found in **CODE CELL 20** and **CODE CELL
 The pipeline is applied to the 'test_video' and the 'project_video'.
 
 The following video show the final project video:
+
 [Project Video](https://youtu.be/IGq4IbWYJzc)
 
 # 8. Conclusio
