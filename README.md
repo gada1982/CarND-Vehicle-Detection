@@ -37,7 +37,7 @@ Conclusion
 - folder test_images - test images provided by Udacity
 
 # 3. Classifier
-### 3.1 Get Training and Test Data
+### 3.1 Collect Images for Training and Test Data
 First, all the images of vehicle and non-vehicle for training and testing the classifier have to be read in. 
 
 The code for this functionality can be found in **CODE CELL 2** of the Jupyter notebook P5.jpynb.
@@ -62,13 +62,16 @@ I have experimented with different parameters. The best result (feature size and
 
 ### 3.3 Histogram of Oriented Gradient (HOG)
 The code for this functionality can be found in **CODE CELL 5** of the Jupyter notebook P5.jpynb.
-Functions `get_parameters_hog_features` and `get_hog_features`.
+Functions `get_parameters_hog_features`, `get_hog_features` and `print_hog_examples`.
 
 I have experimented with different parameters. The best result (feature size and accurancy while training) was produced by the following parameters: 
 
 `cspace = 'YCrCb', orient = 9, pix_per_cell = 8, cell_per_block = 2, hog_channel = 'ALL'`
 
 The functionality `hog from skimage.feature` has been used for creating the Histogram of Oriented Gradient (HOG).
+
+The following example shows the result for one car-image and one non-car image:
+![hog](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/hog.png)
 
 ### 3.4 Extracting features for Training
 The code for this functionality can be found in **CODE CELL 6** of the Jupyter notebook P5.jpynb.
