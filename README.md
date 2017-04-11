@@ -1,6 +1,6 @@
 # Introduction
 
-This project is done as a part of the Nanodegree - Self-Driving Car Engineer provided by Udacity. The scope of this project is finding and marking vehicles on a given, recorded track. The recorded raw video and some used sample codes are provided by Udacity.
+This project is done as a part of the **Nanodegree - Self-Driving Car Engineer** provided by Udacity. The scope of this project is finding and marking vehicles on a given, recorded track. The recorded raw video and some used sample codes are provided by Udacity.
 
 The goals / steps of this project are the following:
 
@@ -14,7 +14,8 @@ The goals / steps of this project are the following:
 # Outline
 1. Requirements
 2. Files
-3. 
+3. Classifier
+4. Sliding Window Search
 Pipeline for Single Images
 Pipeline for Video
 Conclusion
@@ -102,7 +103,17 @@ The final **accuracy** on the test data is **0.9896**.
 The whole classifier including its parameter is stored as a pickle-file to have a checkpoint. This helps to speed up the development process because the classifier can be taken as it is without training again and again.
 
 The code for this functionality can be found in **CODE CELL 9** and **CODE CELL 10** of the Jupyter notebook P5.jpynb.
-Functions `save_as_pickle`and `read_pickle`.
+Functions `save_as_pickle` and `read_pickle`.
+
+### 3.8 Validation of the classifier
+
+The classifier was validate by a small set of images (which have not been used for training and testing at all). Eight car images and eight non-car-images have been choosen, the features have been extracted, predections have been made and the images have been labeled. One stands for car, zero for non-car classification.
+
+The code for this functionality can be found in **CODE CELL 11** of the Jupyter notebook P5.jpynb.
+Functions `extract_features_single`, `get_prediction_of_single_image` and `show_labeled_images_as_table`.
+
+The following table shows the results:
+![prediction_images](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/predictions.png)
 
 
 
