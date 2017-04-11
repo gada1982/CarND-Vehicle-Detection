@@ -113,9 +113,21 @@ The code for this functionality can be found in **CODE CELL 11** of the Jupyter 
 Functions `extract_features_single`, `get_prediction_of_single_image` and `show_labeled_images_as_table`.
 
 The following table shows the results:
-![prediction_images](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/predictions.png)
+![prediction_images](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/predictions.jpg)
 
+# 4. Sliding Window Search
 
+A region of interest was defined where cars could appear. Sub-regions (windows) of the image have been taken and classified. If the single window has been classified as one (car found) a box has been drawn on the original Image. Different window sizes (64x64, 96x96, 140x140, 210x210 and 220x220) have been processed to make the detection-pipeline more robust.
+
+The code for this functionality can be found in **CODE CELL 13 to 16** of the Jupyter notebook P5.jpynb.
+Functions `return_parameter`, `slide_window_single`, `draw_boxes`, `slide_window_all`, `single_img_features`, `search_windows`.
+
+Function `slide_window_single` define sub-regions (windows) of the whole image in defined single sizes:
+Sub-regions of different sizes have been added (overlapping) the respect different car sizes in different distances.
+Sub-regions of the same size are overlapping (horizontally) by 80% to get multiple detections.
+
+The following examples show the overlapping sub-regions.
+![boxes](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/boxes.jpg)
 
 
 
