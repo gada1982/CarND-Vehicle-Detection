@@ -16,9 +16,10 @@ The goals / steps of this project are the following:
 2. Files
 3. Classifier
 4. Sliding Window Search
-Pipeline for Single Images
-Pipeline for Video
-Conclusion
+5. Heat Map and Combined Box
+6. Pipeline for Single Images
+7. Pipeline for Video Stream
+8. Conclusion
 
 # 1. Requirements
 - Python 3.5
@@ -122,14 +123,59 @@ A region of interest was defined where cars could appear. Sub-regions (windows) 
 The code for this functionality can be found in **CODE CELL 13 to 16** of the Jupyter notebook P5.jpynb.
 Functions `return_parameter`, `slide_window_single`, `draw_boxes`, `slide_window_all`, `single_img_features`, `search_windows`.
 
-Function `slide_window_single` define sub-regions (windows) of the whole image in defined single sizes:
+Function `slide_window_single` defines sub-regions (windows) of the whole image in defined single sizes:
 Sub-regions of different sizes have been added (overlapping) the respect different car sizes in different distances.
-Sub-regions of the same size are overlapping (horizontally) by 80% to get multiple detections.
+Sub-regions of the same size are overlapping (horizontally) by 80% to get multiple detections. The sub-regions are drawn with function `draw_boxes`.
 
-The following examples show the overlapping sub-regions.
+The following examples show the overlapping sub-regions:
 ![boxes](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/boxes.jpg)
 
+Function `slide_window_all` does the work of multiple calls of function `slide_window_single` (with differnt sizes) in one step. The sub-regions are drawn with function `draw_boxes`.
 
+Function `search_windows` takes the list of sub-regions (provided by function `slide_window_all`), does predictions on the single sub-regions with function `single_img_features`) and marks all sub-regions where a car was found as hot-windows. The hot sub-regions are drawn with function `draw_boxes`.
+
+The following example show the result:
+![overlapping](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/overlapping.jpg)
+
+# 5. Heat Map and Combined Box
+
+To handle overlapping, multiple detections of the same car a heat map was introduced. Each single detection adds five 'points' to the heatmap of the pixels on which the detection occours. Out of the heatmap a combined box for each car is generated.
+
+The code for this functionality can be found in **CODE CELL 17** and **CODE CELL 18** of the Jupyter notebook P5.jpynb.
+Functions `add_heat`, `apply_threshold` and `draw_labeled_bboxes`.
+
+The following image show the heatmap of the image above:
+![heat_map](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/heatmap.jpg)
+
+With function `apply_threshold` all pixels are set to zero, which do not reach the minimum amount of 'points'.
+This helps to prevent false positives. With function `draw_labeled_bboxes` a combined box is drawn around each single detected car.
+
+The following image show the combined boxes for the detections on the image above:
+![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
+
+# 6. Pipeline for Single Images
+
+Out of all this function a single pipeline was generated, which takes a single image and produces an images with drawn combined boxes around each detected car.
+
+The code for this functionality can be found in **CODE CELL 19** of the Jupyter notebook P5.jpynb.
+Function `generate_processed_image`.
+
+This looks like the following example:
+The following image show the combined boxes for the detections on the image above:
+![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
+
+# 7. Pipeline for Video Stream
+
+The same pipeline as above is used for processing the video stream. Each framed is fed into the pipeline. To smoothen the output a multi-frame heatmap was introduced in the pipeline. The last ten frames are combined in a weighted heatmap. The older the frame is, the less weight it gets. This helps to prevent 'jumping' detection and false positives.
+
+The code for this functionality can be found in **CODE CELL 20** and **CODE CELL 20** of the Jupyter notebook P5.jpynb.
+The pipeline is applied to the 'test_video' and the 'project_video'.
+
+The following video show the final project video:
+
+[Project Video](https://youtu.be/IGq4IbWYJzc)
+
+# 8. Conclusio
 
 
 
