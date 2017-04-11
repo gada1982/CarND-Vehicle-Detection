@@ -177,9 +177,14 @@ The following video shows the final project video:
 
 [Project Video](https://youtu.be/IGq4IbWYJzc)
 
-# 8. Conclusio
+# 8. Conclusion
 
+The most challenging part of the project was to try different settings for the two used technics of getting features for training the classifier. Histograms of Color in combination with Spatial Binning of Color as the first and Histogram of Oriented Gradient (HOG) features as the second.
 
+A big improvement was possible by averaging the heatmap over various frames from the video (10 taken). This helps to prevent false-positives and gives a much smoother result.
 
+The choosen solution works well for the mandatory video project_video.mp4 but it is not very fast.
+
+Futher work has to be invested to get the solution useable in (nearly) real-time. HOG Sub-sampling could be a major advantage, but it wasn't used until now because the actual solution is much more straight forward and better for showing the general approach of using sliding window search in combination with a classifier for vehicle detection. Multi-threading could be an option too.
 
 
