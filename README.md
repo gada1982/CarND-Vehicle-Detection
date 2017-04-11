@@ -152,7 +152,24 @@ This helps to prevent false positives. With function `draw_labeled_bboxes` a com
 The following image show the combined boxes for the detections on the image above:
 ![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
 
+# 6. Pipeline for Single Images
 
+Out of all this function a single pipeline was generated, which takes a single image and produces an images with drawn combined boxes around each detected car.
+
+This looks like the following example:
+The following image show the combined boxes for the detections on the image above:
+![combined_box](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/combined_box.jpg)
+
+# 7. Pipeline for Video Stream
+
+The same pipeline as above is used for processing the video stream. Each framed is fed into the pipeline. To smoothen the output a multi-frame heatmap was introduced in the pipeline. The last ten frames are combined in a weighted heatmap. The older the frame is, the less weight it gets. This helps to prevent 'jumping' detection and false positives.
+
+The following video show the result:
+
+TODO.
+
+
+# 8. Conclusio
 
 
 
