@@ -83,7 +83,7 @@ Function `get_training_data`.
 The combined features have been normalized by `StandardScaler() from the package sklearn`.
 
 The following example shows the result:
-![normalize]()
+![normalize](https://github.com/gada1982/CarND-Vehicle-Detection/blob/master/info_for_readme/histogramm.png)
 
 
 
